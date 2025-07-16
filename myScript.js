@@ -27,7 +27,7 @@ function getHumanChoice() {
         choice = "scissors"
     }
     else {
-        console.log("Invalit input")
+        return (console.log("Invalit input"));
     }
     return choice;
 }
@@ -62,10 +62,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    round = 0
+    while (round <= 5) {
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log("Game state: " + humanScore + ":" + computerScore)
+        round++;
+    }
+    if (humanScore > computerScore) {
+        console.log("You Win! " + humanScore + ":" + computerScore)
+    }
+    else if (humanScore < computerScore) {
+        console.log("You Lose! " + humanScore + ":" + computerScore)
+    }
+    else { console.log("It's a Draw! " + humanScore + ":" + computerScore) }
+}
+
 humanScore = 0
 computerScore = 0
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame()
