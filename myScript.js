@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    random = Math.floor(Math.random() * 3)
+    let random = Math.floor(Math.random() * 3)
     let value;
     if (random == 0) {
         value = "rock"
@@ -66,8 +66,8 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     round = 0
     while (round < 5) {
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         console.log("Game state: " + humanScore + ":" + computerScore)
         round++;
@@ -81,7 +81,7 @@ function playGame() {
     else { console.log("It's a Draw! Final Score: " + humanScore + ":" + computerScore) }
 }
 
-humanScore = 0
-computerScore = 0
+let humanScore = 0
+let computerScore = 0
 
 playGame()
