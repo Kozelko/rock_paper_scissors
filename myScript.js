@@ -1,6 +1,6 @@
 function getComputerChoice() {
     random = Math.floor(Math.random() * 3)
-    value = "";
+    let value;
     if (random == 0) {
         value = "rock"
     }
@@ -14,22 +14,23 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    console.log("0 = rock\n1 = paper\n2 = scissors")
-    choice = prompt()
-    console.log(choice)
-    if (choice == "0") {
-        choice = "rock"
+    let choice;
+    while (true) {
+        console.log("0 = rock\n1 = paper\n2 = scissors")
+        choice = prompt();
+        if (choice === "0") {
+            return "rock";
+        }
+        else if (choice === "1") {
+            return "paper";
+        }
+        else if (choice === "2") {
+            return "scissors";
+        }
+        else {
+            console.log("Invalid Input");
+        }
     }
-    else if (choice == "1") {
-        choice = "paper"
-    }
-    else if (choice == "2") {
-        choice = "scissors"
-    }
-    else {
-        return (console.log("Invalit input"));
-    }
-    return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -64,7 +65,7 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     round = 0
-    while (round <= 5) {
+    while (round < 5) {
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
@@ -72,12 +73,12 @@ function playGame() {
         round++;
     }
     if (humanScore > computerScore) {
-        console.log("You Win! " + humanScore + ":" + computerScore)
+        console.log("You Win! Final Score: " + humanScore + ":" + computerScore)
     }
     else if (humanScore < computerScore) {
-        console.log("You Lose! " + humanScore + ":" + computerScore)
+        console.log("You Lose! Final Score: " + humanScore + ":" + computerScore)
     }
-    else { console.log("It's a Draw! " + humanScore + ":" + computerScore) }
+    else { console.log("It's a Draw! Final Score: " + humanScore + ":" + computerScore) }
 }
 
 humanScore = 0
